@@ -10,7 +10,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
-        self.tail = None
+        # self.tail = None
         
     def traverse_list(self):
         # if list is empty it returns 'print'
@@ -104,9 +104,9 @@ class LinkedList:
 
     def get_count(self):
         if self.head is None:
-            return 0;
+            return 0
         n = self.head
-        count = 0;
+        count = 0
         while n is not None:
             count = count + 1
             n = n.next_node

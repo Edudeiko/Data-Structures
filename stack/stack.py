@@ -11,9 +11,10 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 import sys
+import os
 sys.path.append("../singly_linked_list")
 
-from singly_linked_list import LinkedList
+from singly_linked_list.singly_linked_list import LinkedList
 
 
 class Stack(LinkedList):
