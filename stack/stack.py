@@ -14,6 +14,10 @@ import sys
 import os
 sys.path.append("../singly_linked_list")
 
+import inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
 from singly_linked_list.singly_linked_list import LinkedList
 
 
