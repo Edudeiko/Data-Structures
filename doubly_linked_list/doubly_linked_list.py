@@ -55,6 +55,7 @@ class DoublyLinkedList:
         current head's next node the new head of the List.
         Returns the value of the removed Node.
         """
+        
         if self.head is None:
             return
         if self.head is self.tail:
@@ -145,15 +146,20 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
-        if not self.head:
-            return -1
-        max_ = self.head.value
-        curr = self.head
-        while curr.next:
-            curr = curr.next
-            if curr.value > max_:
-                max_ = curr.value
-        return max_
+        # check if dll empty
+        if self.head is None:
+            return None
+        # keep track of current node, max
+        # keep track of max
+        cur_node = self.head
+        max_value = self.head.value
+        # loop through dll
+        while cur_node:  # while cur_node is not None:
+            # comparing with cur_max
+            if cur_node.value > max_value:
+                max_value = cur_node.value
+            cur_node = cur_node.next
+        return max_value
 
 
     def traverse_list(self):
@@ -162,10 +168,11 @@ class DoublyLinkedList:
             print("List has no element")
             return
         else:
-            n = self.head
-            while n is not None:
-                print(n.value , " ")
-                n = n.next
+            h = self.head
+            while h is not None:
+                print(h.value , " ")
+                h = h.next
+
 
 l = DoublyLinkedList()
 l.traverse_list()
@@ -190,4 +197,7 @@ print('move to front')
 l.traverse_list()
 l.move_to_end(3)
 print('back to tail')
+l.traverse_list()
+print('max_number')
+l.get_max()
 l.traverse_list()
