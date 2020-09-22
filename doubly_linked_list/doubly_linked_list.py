@@ -168,10 +168,10 @@ class DoublyLinkedList:
             print("List has no element")
             return
         else:
-            n = self.head
-            while n is not None:
-                print(n.value , " ")
-                n = n.next
+            h = self.head
+            while h is not None:
+                print(h.value , " ")
+                h = h.next
 
 
 l = DoublyLinkedList()
@@ -197,4 +197,7 @@ print('move to front')
 l.traverse_list()
 l.move_to_end(3)
 print('back to tail')
+l.traverse_list()
+print('max_number')
+l.get_max()
 l.traverse_list()
