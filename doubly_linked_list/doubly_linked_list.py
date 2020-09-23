@@ -36,7 +36,8 @@ class DoublyLinkedList:
         the old head node's previous pointer accordingly.
         """
         # create a new node
-        new_node = ListNode(value)
+        new_node = ListNode(value, None, None)
+        self.length +=1
         # 1. add to empty
         if self.head is None:
             self.head = new_node
@@ -46,8 +47,8 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
-        # update  yhe lenght
-        self.length +=1
+        # update  the lenght
+        # self.length +=1
 
     def remove_from_head(self):
         """
@@ -61,11 +62,11 @@ class DoublyLinkedList:
         if self.head is self.tail:
             self.head = None
             self.tail = None
-            self.lenght = 0
+            self.length = 0
             return
         self.head = self.head.next
         self.head.prev = None
-        self.length -= 1
+        self.length += -1
 
     def add_to_tail(self, value):
         """
@@ -74,14 +75,15 @@ class DoublyLinkedList:
         the old tail node's next pointer accordingly.
         """
         new_node = ListNode(value)
-        if self.tail is None:
+        self.length += 1
+        if not self.tail and not self.head:
             self.head = new_node
             self.tail = new_node
         else:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
-        self.length += 1
+        # self.length += 1
 
     def remove_from_tail(self):
         """
@@ -89,16 +91,20 @@ class DoublyLinkedList:
         current tail's previous node the new tail of the List.
         Returns the value of the removed Node.
         """
+        self.length += -1
         if self.tail is None:
             return
         if self.tail is self.head:
             self.head = None
             self.tail = None
-            self.lenght = 0
+            self.length = 0
             return
         self.tail = self.tail.prev
         self.tail.next = None
-        self.lenght = -1
+        # self.length = -1
+        # value = self.tail.value
+        # self.delete(self.tail)
+        # return value
 
     def move_to_front(self, node):
         """
@@ -198,6 +204,7 @@ l.traverse_list()
 l.move_to_end(3)
 print('back to tail')
 l.traverse_list()
-print('max_number')
-l.get_max()
-l.traverse_list()
+# print('max_number')
+# l.get_max()
+# l.traverse_list()
+print(f'Length: {l.length}')
