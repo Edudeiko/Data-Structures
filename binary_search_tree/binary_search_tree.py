@@ -69,30 +69,48 @@ class BSTNode:
 
     def for_each(self, fn):
         '''Call the function `fn` on the value of each node'''
-        # one side then the other
-        if self is not None:
-            return
         fn(self.value)
-        if self.right:
-            self.right.for_each(fn)
+        # if self is not None:
+            # return
+
+        # base case - no children
+        if self.left is None and self.right is None:
+            return
+
+        # recursive case - 1 or more children
         if self.left:
             self.left.for_each(fn)
+        if self.right:
+            self.right.for_each(fn)
+
+        
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self):
+        # Recursive - place your print statement in between recursive calls
+        # that explore left & right subtree
+
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
-    def bft_print(self):
+    def bft_print(self):  # using queue
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
-    def dft_print(self):
+    def dft_print(self):  # using stack
+        # create a stack to keep track of nodes we are processing
+        # push self in to the stack
+
+        # while something still in the stack (not done processing all nodes)
+            # use existing 'for_each()' as a reference for traversal logic
+            # push when we START, pop when a node is DONE
+            # and don't forget to call 'print()'
+
         pass
 
     # Stretch Goals -------------------------
