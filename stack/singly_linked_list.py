@@ -1,16 +1,27 @@
 '''Single Linked List Items'''
 
+'''Single Linked List Items'''
+
 class Node:
     def __init__(self, value):
         self.value = value
         self.next_node = None
+        
+    def get_value(self):
+        return self.value
+
+    def get_next_node(self):
+        return self.next_node
+
+    def set_next_node(self, new_next):
+        self.next_node = new_next
 
 '''Creating single linked List Items'''
 
 class LinkedList:
     def __init__(self):
         self.head = None
-        # self.tail = None
+        self.tail = None
         
     def traverse_list(self):
         # if list is empty it returns 'print'
@@ -27,19 +38,27 @@ class LinkedList:
     
     def add_to_head(self, value):
         new_node = Node(value)
-        new_node.next_node = self.head
-        self.head = new_node
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.set_next_node(self.head)
+            self.head = new_node
 
             
     def add_to_tail(self, value):
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
-            return
-        n = self.head
-        while n.next_node is not None:
-            n = n.next_node
-        n.next_node = new_node
+            self.tail = new_node
+#             return
+#         n = self.head
+#         while n.next_node is not None:
+#             n = n.next_node
+#         n.next_node = new_node
+        else:
+            self.tail.set_next_node(new_node)
+            self.tail = new_node
         
         
     def add_after_item(self, x, value):
@@ -136,22 +155,47 @@ class LinkedList:
             self.add_to_tail(value)
             
 
+#     def remove_head(self):
+#         if self.head is None:
+#             print("The list has no element to delete")
+#             return 
+#         self.head = self.head.next_node
+
     def remove_head(self):
         if self.head is None:
-            print("The list has no element to delete")
-            return 
-        self.head = self.head.next_node
+            return None
+        else:
+            if self.head.get_next_node() is None:
+                h = self.head
+                self.head = None
+                self.tail = None
+                return h.get_value()
+            value = self.head.get_value()
+            self.head = self.head.get_next_node()
+            return value
         
 
     def remove_tail(self):
-        if self.head is None:
-            print("The list has no element to delete")
-            return
+        # if self.head is None:
+        #     print("The list has no element to delete")
+        #     return
 
-        n = self.head
-        while n.next_node.next_node is not None:
-            n = n.next_node
-        n.next_node = None
+        # n = self.head
+        # while n.next_node.next_node is not None:
+        #     n = n.next_node
+        # n.next_node = None
+        if self.head is None:
+            return None
+        value = self.tail.value
+        if self.head is self.tail:
+            self.head = None
+            self.tail = None
+            return value
+        current = self.head
+        while current.next_node.get_next_node() is not None:
+            current = current.next_node
+        self.tail = current
+        return value
 
         
     def delete_element_by_value(self, x):
@@ -187,20 +231,28 @@ class LinkedList:
         self.head = prev
 
 
-    def get_max(self):
-        pass
+    # def get_max(self):
+    #     if self.head is None:
+    #         return None
+    #     cur_node = self.head
+    #     max_value = 0
+    #     while cur_node is not None:
+    #         if cur_node.get_value() > max_value:
+    #             max_value = cur_node.get_value()
+    #     return max_value
 
-# my_list = LinkedList()
-# my_list.make_new_list()
-# my_list.add_to_head(2)
-# my_list.add_to_tail(7)
-# my_list.add_before_item(2, 3)
-# my_list.add_after_item(7, 8)
-# my_list.add_at_index(1, 1)
-# my_list.traverse_list()
-# my_list.get_count()
-# my_list.search_item(11)
-# my_list.remove_head()
-# my_list.remove_tail()
-# my_list.delete_element_by_value(11)
-# my_list.reverse_linkedlist()
+
+my_list = LinkedList()
+my_list.make_new_list()
+my_list.add_to_head(2)
+my_list.add_to_tail(7)
+my_list.add_before_item(2, 3)
+my_list.add_after_item(7, 8)
+my_list.add_at_index(1, 1)
+my_list.traverse_list()
+my_list.get_count()
+my_list.search_item(11)
+my_list.remove_head()
+my_list.remove_tail()
+my_list.delete_element_by_value(11)
+my_list.reverse_linkedlist()
