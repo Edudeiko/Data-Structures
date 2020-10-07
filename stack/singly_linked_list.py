@@ -222,15 +222,13 @@ class LinkedList:
             
     def reverse_linkedlist(self):
         prev = None
-        current = self.head
-        while current is not None:
-            temp = current.next_node
-            current.next_node = prev
-            prev = current
-            current = temp
+        n = self.head
+        while n is not None:
+            next = n.next_node
+            n.next_node = prev
+            prev = n
+            n = next
         self.head = prev
-
-
 
 
     # def get_max(self):

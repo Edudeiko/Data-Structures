@@ -42,21 +42,3 @@ class Queue():
         else:
             self.size -= 1
             return self.sll.remove_head()
-
-
-# class Queue:
-#     def __init__(self):
-#         self.size = 0
-#         self.storage = []
-#
-#     def __len__(self):
-#         return sum([1 for i in self.storage])
-#
-#     def enqueue(self, value):
-#         self.storage.append(value)
-#
-#     def dequeue(self):
-#         if len(self.storage) == 0:
-#             return None
-#         else:
-#             return self.storage.pop(0)
