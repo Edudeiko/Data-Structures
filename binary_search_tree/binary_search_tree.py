@@ -1,7 +1,7 @@
 """
-Binary search trees are a data structure that enforce an ordering over 
-the data they store. That ordering in turn makes it a lot more efficient 
-at searching for a particular piece of data in the tree. 
+Binary search trees are a data structure that enforce an ordering over
+the data they store. That ordering in turn makes it a lot more efficient
+at searching for a particular piece of data in the tree.
 This part of the project comprises two days:
 1. Implement the methods `insert`, `contains`, `get_max`, and `for_each`
    on the BSTNode class.
@@ -10,6 +10,7 @@ This part of the project comprises two days:
 """
 
 from queue import Queue
+
 
 class BSTNode:
     def __init__(self, value):
@@ -25,7 +26,7 @@ class BSTNode:
                 self.right = BSTNode(value)
                 return
             else:
-                return self.right.insert(value) # recursive call
+                return self.right.insert(value)  # recursive call
         else:
             value < self.value
             if self.left is None:  # go left
@@ -38,7 +39,7 @@ class BSTNode:
         # while not at bottom level of tree
         # if value < root, go left
             # if left child is None
-                # add here 
+                # add here
                 # exit loop
 
         # if value >= root, go right (dupes go to the right)
@@ -85,13 +86,14 @@ class BSTNode:
         if self.right:
             self.right.for_each(fn)
 
-        
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
+
     def in_order_print(self):
+
         # Recursive - place your print statement in between recursive calls
         # then explore left & right subtree
         if self.left is not None:
@@ -151,9 +153,11 @@ class BSTNode:
             self.right.post_order_dft()
         print(self.value)
 
+
 """
 This code is necessary for testing the `print` methods
 """
+
 bst = BSTNode(1)
 
 bst.insert(8)
@@ -174,4 +178,4 @@ bst.pre_order_dft()
 print("in order")
 bst.in_order_print()
 print("post order")
-bst.post_order_dft()  
+bst.post_order_dft()

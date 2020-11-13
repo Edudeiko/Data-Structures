@@ -2,6 +2,8 @@
 Each ListNode holds a reference to its previous node
 as well as its next node in the List.
 """
+
+
 class ListNode:
     def __init__(self, value, prev=None, next=None):
         self.value = value
@@ -14,7 +16,7 @@ class ListNode:
             self.prev.next = self.next
         if self.next:
             self.next.prev = self.prev
-            
+
 
 class DoublyLinkedList:
     """

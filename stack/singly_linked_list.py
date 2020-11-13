@@ -1,12 +1,11 @@
 '''Single Linked List Items'''
 
-'''Single Linked List Items'''
 
 class Node:
     def __init__(self, value):
         self.value = value
         self.next_node = None
-        
+
     def get_value(self):
         return self.value
 
@@ -16,13 +15,15 @@ class Node:
     def set_next_node(self, new_next):
         self.next_node = new_next
 
+
 '''Creating single linked List Items'''
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
-        
+
     def traverse_list(self):
         # if list is empty it returns 'print'
         if self.head is None:
@@ -32,10 +33,9 @@ class LinkedList:
             # otherwise it will print the value
             n = self.head
             while n is not None:
-                print(n.value , " ")
+                print(n.value, " ")
                 n = n.next_node
 
-    
     def add_to_head(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -45,7 +45,6 @@ class LinkedList:
             new_node.set_next_node(self.head)
             self.head = new_node
 
-            
     def add_to_tail(self, value):
         new_node = Node(value)
         if self.head is None:
@@ -59,8 +58,7 @@ class LinkedList:
         else:
             self.tail.set_next_node(new_node)
             self.tail = new_node
-        
-        
+
     def add_after_item(self, x, value):
 
         n = self.head
@@ -75,8 +73,7 @@ class LinkedList:
             new_node = Node(value)
             new_node.next_node = n.next_node
             n.next_node = new_node
-            
-            
+
     def add_before_item(self, x, value):
         # check if the list is empty
         if self.head is None:
@@ -101,8 +98,7 @@ class LinkedList:
             new_node = Node(value)
             new_node.next_node = n.next_node
             n.next_node = new_node
-            
-            
+
     def add_at_index(self, index, value):
         if index == 1:
             new_node = Node(value)
@@ -115,11 +111,10 @@ class LinkedList:
             i = i+1
         if n is None:
             print("Index out of bound")
-        else: 
+        else:
             new_node = Node(value)
             new_node.next_node = n.next_node
             n.next_node = new_node
-            
 
     def get_count(self):
         if self.head is None:
@@ -130,8 +125,7 @@ class LinkedList:
             count = count + 1
             n = n.next_node
         return count
-    
-    
+
     def search_item(self, x):
         if self.head is None:
             print("List has no elements")
@@ -145,7 +139,6 @@ class LinkedList:
         print("item not found")
         return False
 
-
     def make_new_list(self):
         nums = int(input("How many nodes do you want to create: "))
         if nums == 0:
@@ -153,12 +146,11 @@ class LinkedList:
         for _ in range(nums):
             value = int(input("Enter the value for the node: "))
             self.add_to_tail(value)
-            
 
 #     def remove_head(self):
 #         if self.head is None:
 #             print("The list has no element to delete")
-#             return 
+#             return
 #         self.head = self.head.next_node
 
     def remove_head(self):
@@ -173,7 +165,6 @@ class LinkedList:
             value = self.head.get_value()
             self.head = self.head.get_next_node()
             return value
-        
 
     def remove_tail(self):
         # if self.head is None:
@@ -197,13 +188,12 @@ class LinkedList:
         self.tail = current
         return value
 
-        
     def delete_element_by_value(self, x):
         if self.head is None:
             print("The list has no element to delete")
             return
 
-        # Deleting first node 
+        # Deleting first node
         if self.head.value == x:
             self.head = self.head.next_node
             return
@@ -218,8 +208,7 @@ class LinkedList:
             print("item not found in the list")
         else:
             n.rnext_nodeef = n.next_node.next_node
-            
-            
+
     def reverse_linkedlist(self):
         prev = None
         n = self.head
@@ -229,7 +218,6 @@ class LinkedList:
             prev = n
             n = next
         self.head = prev
-
 
     # def get_max(self):
     #     if self.head is None:
@@ -242,17 +230,17 @@ class LinkedList:
     #     return max_value
 
 
-my_list = LinkedList()
-my_list.make_new_list()
-my_list.add_to_head(2)
-my_list.add_to_tail(7)
-my_list.add_before_item(2, 3)
-my_list.add_after_item(7, 8)
-my_list.add_at_index(1, 1)
-my_list.traverse_list()
-my_list.get_count()
-my_list.search_item(11)
-my_list.remove_head()
-my_list.remove_tail()
-my_list.delete_element_by_value(11)
-my_list.reverse_linkedlist()
+# my_list = LinkedList()
+# my_list.make_new_list()
+# my_list.add_to_head(2)
+# my_list.add_to_tail(7)
+# my_list.add_before_item(2, 3)
+# my_list.add_after_item(7, 8)
+# my_list.add_at_index(1, 1)
+# my_list.traverse_list()
+# my_list.get_count()
+# my_list.search_item(11)
+# my_list.remove_head()
+# my_list.remove_tail()
+# my_list.delete_element_by_value(11)
+# my_list.reverse_linkedlist()
