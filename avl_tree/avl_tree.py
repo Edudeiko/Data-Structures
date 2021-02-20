@@ -56,7 +56,7 @@ class AVLTree:
                     self.node.left.update_height()
                 if self.node.right != None:
                     self.node.right.update_height()
-                    
+         
             self.height = max(self.node.left.height,
                               self.node.right.height) + 1
         else:
@@ -72,7 +72,7 @@ class AVLTree:
                     self.node.left.update_balance()
                 if self.node.right != None:
                     self.node.right.update_balance()
-                    
+    
             self.balance = self.node.left.height - self.node.right.height
         else:
             self.balance = 0
@@ -81,12 +81,12 @@ class AVLTree:
         """
         Perform a left rotation, making the right child of this
         node the parent and making the old parent the left child
-        of the new parent. 
+        of the new parent.
         """
-        S = self.node 
-        R = self.node.right.node 
-        L = R.left.node 
-        
+        S = self.node
+        R = self.node.right.node
+        L = R.left.node
+
         self.node = R 
         R.left.node = S 
         S.right.node = L 
@@ -100,7 +100,7 @@ class AVLTree:
         S = self.node 
         L = self.node.left.node 
         R = L.right.node 
-        
+
         self.node = L 
         L.right.node = S 
         S.left.node = R 

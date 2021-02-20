@@ -33,8 +33,8 @@ class DoublyLinkedList:
 
     def add_to_head(self, value):
         """
-        Wraps the given value in a ListNode and inserts it 
-        as the new head of the list. Don't forget to handle 
+        Wraps the given value in a ListNode and inserts it
+        as the new head of the list. Don't forget to handle
         the old head node's previous pointer accordingly.
         """
         # create a new node
@@ -58,7 +58,7 @@ class DoublyLinkedList:
         current head's next node the new head of the List.
         Returns the value of the removed Node.
         """
-        
+
         if self.head is None:
             return
         if self.head is self.tail:
@@ -72,8 +72,8 @@ class DoublyLinkedList:
 
     def add_to_tail(self, value):
         """
-        Wraps the given value in a ListNode and inserts it 
-        as the new tail of the list. Don't forget to handle 
+        Wraps the given value in a ListNode and inserts it
+        as the new tail of the list. Don't forget to handle
         the old tail node's next pointer accordingly.
         """
         new_node = ListNode(value)
@@ -89,7 +89,7 @@ class DoublyLinkedList:
 
     def remove_from_tail(self):
         """
-        Removes the List's current tail node, making the 
+        Removes the List's current tail node, making the
         current tail's previous node the new tail of the List.
         Returns the value of the removed Node.
         """
@@ -115,7 +115,6 @@ class DoublyLinkedList:
         """
         self.delete(node)
         self.add_to_head(node)
-        
 
     def move_to_end(self, node):
         """
@@ -130,7 +129,7 @@ class DoublyLinkedList:
 
     def delete(self, node):
         """
-        Deletes the input node from the List, preserving the 
+        Deletes the input node from the List, preserving the
         order of the other elements of the List. Handles cases where
         the node was the head or the tail as well
         """

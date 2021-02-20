@@ -43,4 +43,3 @@ In depth first, we pick one path at each branch and keep going forward until we 
 
 #### What is the difference between a Search and a Traversal?
 A search and a traversal are processed exactly the same.  The difference is that we stop a search when we find what we were looking for, or when all nodes have been visited without finding it.  In a traversal, we always keep going until we've visited every node.
-

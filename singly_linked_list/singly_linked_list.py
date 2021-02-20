@@ -51,10 +51,10 @@ class LinkedList:
             self.head = new_node
             self.tail = new_node
 #             return
-#         n = self.head
-#         while n.next_node is not None:
-#             n = n.next_node
-#         n.next_node = new_node
+#         current = self.head
+#         while current.next_node is not None:
+#             current = current.next_node
+#         current.next_node = new_node
         else:
             self.tail.set_next_node(new_node)
             self.tail = new_node
@@ -207,7 +207,7 @@ class LinkedList:
         if n.next_node is None:
             print("item not found in the list")
         else:
-            n.rnext_nodeef = n.next_node.next_node
+            n.next_node = n.next_node.next_node
 
     def reverse_linkedlist(self):
         prev = None

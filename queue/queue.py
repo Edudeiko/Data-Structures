@@ -21,6 +21,7 @@ Stretch: What if you could only use instances of your Stack class to implement t
 # currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 # parentdir = os.path.dirname(currentdir)
 # sys.path.insert(0, parentdir)
+
 from singly_linked_list import LinkedList
 
 
@@ -45,19 +46,24 @@ class Queue():
             return self.sll.remove_head()
 
 
-# class Queue:
-#     def __init__(self):
-#         self.size = 0
-#         self.storage = []
-#
-#     def __len__(self):
-#         return sum([1 for i in self.storage])
-#
-#     def enqueue(self, value):
-#         self.storage.append(value)
-#
-#     def dequeue(self):
-#         if len(self.storage) == 0:
-#             return None
-#         else:
-#             return self.storage.pop(0)
+class Queue_2:
+    '''
+    Queue solution, not depending on SLL
+    '''
+    def __init__(self):
+        self.size = 0
+        self.storage = []
+
+    def __len__(self):
+        return sum([1 for i in self.storage])
+
+    def enqueue(self, value):
+        # put
+        self.storage.append(value)
+
+    def dequeue(self):
+        # pop
+        if len(self.storage) == 0:
+            return None
+        else:
+            return self.storage.pop(0)

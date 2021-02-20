@@ -1,7 +1,5 @@
 '''Single Linked List Items'''
 
-'''Single Linked List Items'''
-
 class Node:
     def __init__(self, value):
         self.value = value
